@@ -1,0 +1,65 @@
+<LoginScreen>
+    name: 'Login'
+    FloatLayout:
+
+        MDIconButton:
+            icon: "arrow-left"
+            style: "standard"
+            pos_hint: {'center_x':0.05, 'center_y': 0.95}
+            on_release:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'Main'
+
+        Image:
+            source: 'images/iconUser.png'
+            size_hint:(None, None)
+            pos_hint: {'center_x':0.5, 'center_y': 0.93}
+
+        MDLabel:
+            text: "Seja Bem-Vindo!"
+            font_style: 'H5'
+            bold: True
+            halign: 'center'
+            pos_hint: {'center_x':0.5, 'center_y': 0.87}
+
+        MDLabel:
+            text: "Faça login para continuar"
+            font_style: 'Caption'
+            halign: 'center'
+            pos_hint: {'center_x':0.5, 'center_y': 0.83}
+
+        MDTextField:
+            hint_text: "E-mail"
+            pos_hint: {'center_x':0.5, 'center_y': 0.7}
+            size_hint_x: .83
+            icon_right: 'email'
+
+        MDTextField:
+            hint_text: "Password"
+            pos_hint: {'center_x':0.5, 'center_y': 0.57}
+            password: True
+            size_hint_x: .83
+            icon_right: 'lock'
+
+        MDTextButton:
+            text: "Forget Password"
+            font_size: 16
+            pos_hint: {'center_x':0.5, 'center_y': 0.12}
+
+        MDFillRoundFlatButton:
+            text: 'Login'
+            font_size: 20
+            text_color: 1, 1, 1, 1
+            pos_hint: {'center_x':0.5, 'center_y': 0.45}
+            size_hint_x: .83
+
+        MDFillRoundFlatButton:
+            text: 'Register'
+            font_size: 20
+            text_color: 1, 1, 1, 1
+            md_bg_color: .18, .53, 1, 1
+            pos_hint: {'center_x':0.5, 'center_y': 0.35}
+            size_hint_x: .83
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'Register'
