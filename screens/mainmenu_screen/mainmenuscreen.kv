@@ -1,0 +1,88 @@
+<MainMenuScreen>
+    name: "Home"
+    MDFloatLayout:
+        md_bg_color: rgba(246, 250, 255, 255)
+        MDLabel:
+            text:"Hello,"
+            font_size: "15sp"
+            pos_hint:{"center_x": .56, "center_y": .93}
+            color: rgba(188, 202, 228, 255)
+
+        MDLabel:
+            text: "User!"
+            font_size: "20sp"
+            pos_hint:{"center_x": .56, "center_y": .89}
+            color: rgba(71, 92, 119, 255)
+
+        ProfileButton:
+            source: 'images/iconUser.png'
+            pos_hint:{"center_x": .83, "center_y": .91}
+            background_color: 1, 1, 1, 0
+            size_hint: None, None
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'Perfil'
+
+        SearchBar:
+            size_hint: .85, .09
+            pos_hint:{"center_x": .5, "center_y": .75}
+            elevation: 2
+            md_bg_color: 1, 1, 1, 1
+            radius: [15]
+            Image:
+                source: "images/search.png"
+                pos_hint: {"center_x": .13, "center_y": .48}
+            TextInput:
+                hint_text: "Procure sobre seu negócio"
+                size_hint: .78, None
+                pos_hint:{"center_x": .58, "center_y": .5}
+                height: self.minimum_height
+                cursor_color: 0, 0, 0, 1
+                cursor_width: "2sp"
+                multiline: False
+                background_color: 0, 0, 0, 0
+                padding: 15
+                font_size: "14sp"
+                hint_text_color: rgba(195, 208, 231, 255)
+        ScrollView:
+            do_scroll_y: False
+            do_scroll_x: True
+            size_hint_y: .14
+            pos_hint: {"center_y": .58}
+            bar_width: 0
+            GridLayout:
+                size_hint_x:None
+                heigth: self.minimum_height
+                width: self.minimum_width
+                rows: 1
+                spacing: 10
+                padding: 20, 0
+                Image:
+                    source: "images/projeto1.jpg"
+                    size_hint: None, None
+                    size: "65dp", "65dp"
+                Image:
+                    source: "images/projeto2.jpg"
+                    size_hint: None, None
+                    size: "65dp", "65dp"
+                Image:
+                    source: "images/projeto3.jpg"
+                    size_hint: None, None
+                    size: "65dp", "65dp"
+        MDFloatLayout:
+            size_hint: .75, .36
+            pos_hint: {"center_x": .5, "center_y": .32}
+            canvas.before:
+                Color:
+                    rgb: 1, 1, 1, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [16, 16, 0, 0]
+
+        ProfileCard:
+            size_hint: .75, .75
+            pos_hint: {"center_x": .5, "center_y": .09}
+            elevation: 2
+            md_bg_color: rgba(249, 250, 253, 255)
+            radius: [0, 0, 16, 16]
